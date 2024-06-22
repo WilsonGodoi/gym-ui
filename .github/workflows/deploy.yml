@@ -13,8 +13,11 @@ jobs:
           password: ${{ secrets.UBUNTU_SERVER_PASSWORD }}
           port: ${{ secrets.UBUNTU_SERVER_PORT }}
           script: |
-            cd projects/gym-ui
+            cd projects
+            git clone git@github.com:WilsonGodoi/gym-ui.git
+            cd gym-ui
             git fetch
             git checkout ${{ github.ref_name }}
-            git pull
             docker-compose -f docker-compose.yaml up -d --build
+            cd ..
+            rm -rf gym-ui/
