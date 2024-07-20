@@ -8,4 +8,11 @@ export const routes: Routes = [
         (x) => x.LoginComponent
       ),
   },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./components/dashboard/dashboard.component').then(
+        (x) => x.DashboardComponent
+      ),
+  },
 ];

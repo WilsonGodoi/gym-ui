@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Exercise</th>
+    <th>Group</th>
+    <th>Distance</th>
+    <th>Time</th>
+    <th>Average speed</th>
+  </tr>
+  <tr *ngFor="let exercise of exercises$ | async">
+    <td>{{ exercise.createdAt | date }}</td>
+    <td>{{ exercise.exerciseType }}</td>
+    <td>{{ exercise.exerciseGroupType }}</td>
+    <td>{{ exercise.distance }}</td>
+    <td>{{ exercise.time }}</td>
+    <td>{{ exercise.averageSpeed }}</td>
+  </tr>
+</table>

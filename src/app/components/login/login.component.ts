@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginResponse } from '../../models/loginResponse';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -12,7 +14,11 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = fb.group({
       email: [],
       password: [],
@@ -22,6 +28,11 @@ export class LoginComponent {
   submit() {
     this.authService
       .login(this.form.getRawValue())
-      .subscribe((data) => console.log(data));
+      .subscribe((data) => this.handleLogin(data));
   }
+
+  private handleLogin = (loginResponse: LoginResponse) => {
+    localStorage.setItem('token', loginResponse.jwt);
+    this.router.navigate(['dashboard']);
+  };
 }
