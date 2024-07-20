@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { LoginRequest } from '../models/loginRequest';
 import { LoginResponse } from '../models/loginResponse';
 
@@ -11,7 +12,8 @@ export class AuthService {
 
   login(loginRequest: LoginRequest) {
     return this.http.post<LoginResponse>(
-      'http://localhost:8080/auth/login',
+      `${environment.apiUrl}auth/login`,
+
       loginRequest
     );
   }

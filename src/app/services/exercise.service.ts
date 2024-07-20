@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class ExerciseService {
   );
 
   getAll() {
-    return this.http.get('http://localhost:8080/exercise', {
+    return this.http.get(`${environment.apiUrl}exercise`, {
       headers: this.httpHeaders,
     });
   }
