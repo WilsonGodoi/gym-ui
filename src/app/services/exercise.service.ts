@@ -13,6 +13,21 @@ export class ExerciseService {
     `Bearer ${localStorage.getItem('token')}`
   );
 
+  save(time: number, distance: number) {
+    return this.http.post(
+      `${environment.apiUrl}exercise`,
+      {
+        exerciseGroupType: 'CARDIO',
+        exerciseType: 'TREADMILL',
+        time,
+        distance,
+      },
+      {
+        headers: this.httpHeaders,
+      }
+    );
+  }
+
   getAll() {
     return this.http.get(`${environment.apiUrl}exercise`, {
       headers: this.httpHeaders,

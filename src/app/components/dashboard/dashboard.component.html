@@ -1,3 +1,11 @@
+<form>
+  Distance in meters:
+  <input type="number" [(ngModel)]="distance" name="distance" />
+  <br />
+  Time in minutes: <input type="number" [(ngModel)]="time" name="time" />
+  <button (click)="save()">Save</button>
+</form>
+<br />
 <table>
   <tr>
     <th>Date</th>
@@ -12,7 +20,7 @@
     <td>{{ exercise.exerciseType }}</td>
     <td>{{ exercise.exerciseGroupType }}</td>
     <td>{{ exercise.distance }}</td>
-    <td>{{ exercise.time }}</td>
-    <td>{{ exercise.averageSpeed }}</td>
+    <td>{{ exercise.time }} minutes</td>
+    <td>{{ exercise.averageSpeed | kmHour | number : "1.2-2" }} km/h</td>
   </tr>
 </table>
