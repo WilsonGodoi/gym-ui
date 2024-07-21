@@ -15,4 +15,11 @@ export const routes: Routes = [
         (x) => x.DashboardComponent
       ),
   },
+  {
+    path: 'signin',
+    loadComponent: () =>
+      import('./components/signin/signin.component').then(
+        (x) => x.SigninComponent
+      ),
+  },
 ];
