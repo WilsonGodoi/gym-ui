@@ -14,8 +14,8 @@ import { ExerciseService } from '../../services/exercise.service';
 })
 export class DashboardComponent {
   exercises$!: Observable<any>;
-  time!: number;
-  distance!: number;
+  timeInSeconds!: number;
+  distanceInMeters!: number;
 
   constructor(private exerciseService: ExerciseService) {
     this.getAll();
@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   save() {
     this.exerciseService
-      .save(this.time, this.distance)
+      .save(this.timeInSeconds, this.distanceInMeters)
       .subscribe(() => this.getAll());
   }
 

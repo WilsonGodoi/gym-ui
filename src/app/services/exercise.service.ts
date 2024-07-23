@@ -13,14 +13,14 @@ export class ExerciseService {
     `Bearer ${localStorage.getItem('token')}`
   );
 
-  save(time: number, distance: number) {
+  save(timeInSeconds: number, distanceInMeters: number) {
     return this.http.post(
       `${environment.apiUrl}exercise`,
       {
         exerciseGroupType: 'CARDIO',
         exerciseType: 'TREADMILL',
-        time,
-        distance,
+        timeInSeconds,
+        distanceInMeters,
       },
       {
         headers: this.httpHeaders,
