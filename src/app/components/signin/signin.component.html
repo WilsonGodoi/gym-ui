@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <div>Name: <input type="text" formControlName="firstName" /></div>
+  <div>Email: <input type="text" formControlName="email" /></div>
+  <div>Password: <input type="text" formControlName="password" /></div>
+  <div>
+    Confirmation Password:
+    <input type="text" formControlName="confirmationPassword" />
+  </div>
+  <button (click)="register()">Register</button>
+</form>
