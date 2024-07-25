@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { LoginResponse } from '../../models/loginResponse';
+import { PrimeNgModule } from '../../prime-ng.module';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, PrimeNgModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

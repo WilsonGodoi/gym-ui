@@ -1,8 +1,23 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-  User: <input type="text" formControlName="email" />
-  <br />
-  Password: <input type="text" formControlName="password" type="password" />
-  <br />
-  <button>Login</button>
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-column gap-3">
+  <div class="flex flex-column gap-1">
+    <label for="username">Username</label>
+    <input
+      pInputText
+      id="username"
+      aria-describedby="username-help"
+      formControlName="email"
+    />
+  </div>
+  <div class="flex flex-column gap-1">
+    <label for="password">Password</label>
+    <p-password
+      [inputStyle]="{ width: '100%' }"
+      [style]="{ width: '100%' }"
+      formControlName="password"
+      [toggleMask]="true"
+      [feedback]="false"
+    />
+  </div>
+  <button pButton pRipple label="Login" size="small"></button>
 </form>
 <a routerLink="/signin">Signin</a>
