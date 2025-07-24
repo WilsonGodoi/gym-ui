@@ -35,6 +35,6 @@ jobs:
         run: |
           docker build -t ${{ steps.meta.outputs.image }} .
 
-      - name: Push da imagem para o GHCR
+      - name: Push image to GHCR
         run: |
           docker push ${{ steps.meta.outputs.image }}
